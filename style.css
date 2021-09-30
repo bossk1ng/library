@@ -63,6 +63,7 @@ nav {
     opacity: 0.8;
 }
 
+
 #bookContainer {
     width: 100%;
     display: flex;
@@ -87,4 +88,7 @@ nav {
     background-color: white;
     width: 80%;
     height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

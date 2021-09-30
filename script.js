@@ -1,10 +1,11 @@
 let myLibrary = [];
 
-function Book(author, title, pages, read) {
+function Book(author, title, pages, read, index) {
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.index = index;
 }
 
 const bookContainer = document.getElementById('bookContainer');
@@ -13,7 +14,7 @@ const popupForm = document.getElementById('form');
 const formButton = document.getElementById('btn');
 const formContainer = document.getElementById('formContainer');
 
-console.log(formContainer)
+console.log(formContainer);
 
 function createBook() {
     const book1 = new Book(
@@ -22,23 +23,29 @@ function createBook() {
         formContainer.querySelector('[name="pages"]').value,
         formContainer.querySelector('[name="read"]').value
     );
+
     myLibrary.push(book1);
+
+    return (book1.index = myLibrary.indexOf(book1));
 }
 
 function addBookToLibrary() {
     let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
-    let author = document.createElement('div');
-    author.id = 'author';
-    let title = document.createElement('div');
-    title.id = 'title';
-    let pages = document.createElement('div');
-    pages.id = 'pages';
-    let read = document.createElement('div');
-    read.id = 'read';
+    let index = createBook();
+    let bookValues = document.querySelectorAll('form>input, form>label>input');
+    bookValues.forEach((value) => {
+        let valueDiv = document.createElement('div');
+        let valueName = value.name;
+        valueDiv.textContent = myLibrary[index][valueName];
+        bookCard.appendChild(valueDiv);
+    });
+
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'remove';
+    bookCard.appendChild(removeButton);
 
     bookContainer.appendChild(bookCard);
-    bookCard.append(author, title, pages, read);
 }
 
 function resetForm() {
@@ -52,5 +59,5 @@ addBook.addEventListener('click', () => {
 });
 
 formButton.addEventListener('click', () => {
-    createBook(), resetForm()
+    resetForm();
 });

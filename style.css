@@ -75,5 +75,16 @@ nav {
     margin-top: 20px;
     width: 220px;
     height: 300px;
+    padding: 5px 0;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bookCard>div {
+    background-color: white;
+    width: 80%;
+    height: 15%;
 }

@@ -7,29 +7,34 @@ function Book(author, title, pages, read) {
     this.read = read;
 }
 
-/*
-const book1 = new Book('bob', 'bobbook', 20, false);
-const book2 = new Book('tim', 'timbook', 15, true);
-const book3 = new Book('tim', 'timbook', 15, true);
-const book4 = new Book('tim', 'timbook', 15, true);
-const book5 = new Book('tim', 'timbook', 15, true);
-const book6 = new Book('tim', 'timbook', 15, true);
-const book7 = new Book('tim', 'timbook', 15, true);
-const book8 = new Book('tim', 'timbook', 15, true);
-*/
-
 const bookContainer = document.getElementById('bookContainer');
-
 const addBook = document.getElementById('newBook');
 const popupForm = document.getElementById('form');
 const formButton = document.getElementById('btn');
 const formContainer = document.getElementById('formContainer');
 
+Book.prototype.createBook = () => {
+    console.log(this.title)
+}
+
 function addBookToLibrary() {
+
     let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
+    let author = document.createElement('div')
+    author.id = "author"
+    let title = document.createElement('div')
+    title.id = "title"
+    let pages = document.createElement('div')
+    pages.id = "pages"
+    let read = document.createElement('div')
+    read.id = "read"
+
+
     bookContainer.appendChild(bookCard);
+    bookCard.append(author, title, pages, read)
 }
+
 
 function resetForm() {
     popupForm.style.display = 'none';

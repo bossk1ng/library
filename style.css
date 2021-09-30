@@ -19,7 +19,7 @@ nav {
     display: none;
     margin: auto;
     position: fixed;
-    margin-left: -126.5px;
+    margin-left: -200px;
     top: 25%;
     left: 50%;
     z-index: 9;
@@ -28,7 +28,7 @@ nav {
 }
 
 #formContainer {
-    max-width: 300px;
+    width: 400px;
     padding: 10px;
     background-color: white;
     display: flex;
